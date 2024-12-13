@@ -1,0 +1,86 @@
+/* Navbar container */
+.navbar {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #81c784, #388e3c); /* Gradient from light green to dark green */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Light shadow for depth */
+    margin-top: -10px; /* Reduces the gap between the header and navbar */
+}
+
+/* Logo styling */
+.logo {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3)); /* Stronger shadow for better contrast */
+}
+
+/* Navbar menu items */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #fff; /* White text for visibility */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Active menu item styling */
+.navbar .active {
+    padding-bottom: 2px;
+    border-bottom: 2px solid #ff5722; /* Bright orange-red accent for active items */
+}
+
+/* Navbar search icon and cart */
+.navbar-search-icon {
+    position: relative;
+}
+
+.navbar-search-icon .dot {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
+}
+
+.navbar-search-icon img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Navbar right section */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Sign-in button styling */
+.navbar button {
+    background: transparent;
+    font-size: 16px;
+    color: #fff;
+    border: 1px solid #ff5722; /* Orange-red border to match the theme */
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar button:hover {
+    background-color: #ff5722;
+    color: #fff;
+    border-color: #ff5722;
+}
+
+/* Navbar list item */
+.navbar li {
+    cursor: pointer;
+}
