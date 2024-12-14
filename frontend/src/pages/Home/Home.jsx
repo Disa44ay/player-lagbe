@@ -1,16 +1,14 @@
-import React from 'react'
-import'./Home.css'
-import Header from '../../components/Header/Header'
-import ExploreShop from '../../components/ExploreShop/ExploreShop'
+import React from "react";
+import Header from "../../components/Header/Header";
+import "./Home.css";
 
-const Home = () => {
+const Home = ({ setShowLogin, isLoggedIn }) => {
   return (
-    <div>
-        <Header/>
-        <ExploreShop/>
-      
+    <div className="home">
+      <Header setShowLogin={setShowLogin} isLoggedIn={isLoggedIn} />
+      {/* Additional content can go here */}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

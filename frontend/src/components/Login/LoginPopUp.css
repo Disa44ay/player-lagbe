@@ -1,0 +1,135 @@
+/* General styles for the login popup */
+.login-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .login-popup-container {
+    background-color: #1e1e2f; /* Dark background for the container */
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  /* Title styling */
+  .login-popup-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .login-popup-title h2 {
+    font-size: 24px;
+    color: #ffffff; /* White text for the title */
+    margin: 0;
+  }
+  
+  .login-popup-title img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    filter: brightness(0) invert(1); /* Makes the image visible on dark backgrounds */
+  }
+  
+  /* Input container */
+  .login-popup-input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .login-popup-input input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #555; /* Subtle border color */
+    border-radius: 6px;
+    outline: none;
+    background-color: #2b2b3d; /* Dark input background */
+    color: #fff; /* White text for input */
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .login-popup-input input::placeholder {
+    color: #999; /* Lighter placeholder text */
+  }
+  
+  .login-popup-input input:focus {
+    border-color: #4caf50; /* Green focus border */
+  }
+  
+  /* Button styling */
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4caf50; /* Green theme button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #388e3c; /* Darker green on hover */
+  }
+  
+  /* Terms and conditions */
+  .login-popup-condition {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #ccc; /* Subtle text color for dark theme */
+    margin-top: 15px;
+  }
+  
+  .login-popup-condition input {
+    cursor: pointer;
+  }
+  
+  /* Link styling */
+  p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ccc;
+  }
+  
+  p span {
+    color: #4caf50; /* Green theme for the link */
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  p span:hover {
+    text-decoration: underline;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
