@@ -5,6 +5,10 @@ import logo_new_w_bg from './logo_new_w-bg.png'
 import logo_new_grayscale from './logo_new_grayscale.png'
 import logo_new_white_t_bg from './logo_new_white_t_bg.png'
 
+import logo_linked_in from './logo_linked_in.png'
+import logo_x from './logo_x.png'
+import logo_fb from './logo_fb.png'
+
 import icon_cart from './icons-cart.gif'
 import header_temp from './header_temp.png'
 
@@ -49,6 +53,7 @@ import turf_4 from './turf_4.png'
 import turf_5 from './turf_5.png'
 import turf_6 from './turf_6.png'
 import turf_7 from './turf_7.png'
+import turf_8 from './turf_8.png'
 
 
 
@@ -67,27 +72,276 @@ export const assets = {
     logo_new_white_t_bg,
     icon_cross,
     icon_cross_white,
+    logo_fb,
+    logo_linked_in,
+    logo_x
 }
+
+export const menu_list = [
+    {
+        menu_name: "Football",
+        menu_image: football_1
+    },
+    {
+        menu_name: "Jersey",
+        menu_image: jersey_1
+    },
+    {
+        menu_name: "Shinguard",
+        menu_image: shinguard_1
+    },
+    {
+        menu_name: "Turf boots",
+        menu_image: turf_1
+    },
+    {
+        menu_name: "Training cone",
+        menu_image: cone_1
+    }
+]
 
 export const item_list = [
     {
-        item_name: "Football",
-        item_image: football_1
+        //football items
+        _id: "1",
+        name: "football_1",
+        image: football_2 ,
+        price: 100,
+        description: "will be updated",
+        category: "Football"
     },
     {
-        item_name: "Jersey",
-        item_image: jersey_1
+        _id: "2",
+        name: "football_2",
+        image: football_3,
+        price: 100,
+        description: "will be updated",
+        category: "Football"
     },
     {
-        item_name: "Shinguard",
-        item_image: shinguard_1
+        _id: "3",
+        name: "football_3",
+        image:  football_4 ,
+        price: 100,
+        description: "will be updated",
+        category: "Football"
     },
     {
-        item_name: "Turf boots",
-        item_image: turf_1
+        _id: "4",
+        name: "football_4",
+        image: football_5 ,
+        price: 100,
+        description: "will be updated",
+        category: "Football"
     },
     {
-        item_name: "Training cone",
-        item_image: cone_1
-    }
+        _id: "5",
+        name: "football_5",
+        image: football_6,
+        price: 100,
+        description: "will be updated",
+        category: "Football"
+    },
+    {
+        _id: "6",
+        name: "football_6",
+        image: football_7,
+        price: 100,
+        description: "will be updated",
+        category: "Football"
+    },
+
+    //jersey items
+    {
+        _id: "7",
+        name: "jersey_1",
+        image: jersey_2,
+        price: 200,
+        description: "will be updated",
+        category: "Jersey"
+    },
+    {
+        _id: "8",
+        name: "jersey_2",
+        image: jersey_3,
+        price: 200,
+        description: "will be updated",
+        category: "Jersey"
+    },
+    {
+        _id: "9",
+        name: "jersey_3",
+        image: jersey_4,
+        price: 200,
+        description: "will be updated",
+        category: "Jersey"
+    },
+    {
+        _id: "10",
+        name: "jersey_4",
+        image: jersey_5,
+        price: 200,
+        description: "will be updated",
+        category: "Jersey"
+    },
+    {
+        _id: "11",
+        name: "jersey_5",
+        image: jersey_6,
+        price: 200,
+        description: "will be updated",
+        category: "Jersey"
+    },
+    {
+        _id: "12",
+        name: "jersey_6",
+        image: jersey_7,
+        price: 200,
+        description: "will be updated",
+        category: "Jersey"
+    },
+    {
+        _id: "13",
+        name: "jersey_7",
+        image: jersey_8,
+        price: 200,
+        description: "will be updated",
+        category: "Jersey"
+    },
+
+    //cone items
+    {
+        _id: "14",
+        name: "cone_1",
+        image: cone_2,
+        price: 50,
+        description: "will be updated",
+        category: "Training cone"
+    },
+    {
+        _id: "15",
+        name: "cone_2",
+        image: cone_3,
+        price: 50,
+        description: "will be updated",
+        category: "Training cone"
+    },
+    {
+        _id: "16",
+        name: "cone_3",
+        image: cone_4,
+        price: 50,
+        description: "will be updated",
+        category: "Training cone"
+    },
+    {
+        _id: "17",
+        name: "cone_4",
+        image: cone_5,
+        price: 50,
+        description: "will be updated",
+        category: "Training cone"
+    },
+
+    //shinguards
+
+    {
+        _id: "18",
+        name: "shinguard_1",
+        image: shinguard_2,
+        price: 75,
+        description: "will be updated",
+        category: "Shinguard"
+    },
+    {
+        _id: "19",
+        name: "shinguard_2",
+        image: shinguard_3,
+        price: 75,
+        description: "will be updated",
+        category: "Shinguard"
+    },
+    {
+        _id: "20",
+        name: "shinguard_3",
+        image: shinguard_4,
+        price: 75,
+        description: "will be updated",
+        category: "Shinguard"
+    },
+    {
+        _id: "21",
+        name: "shinguard_4",
+        image: shinguard_5,
+        price: 75,
+        description: "will be updated",
+        category: "Shinguard"
+    },
+    {
+        _id: "22",
+        name: "shinguard_5",
+        image: shinguard_6,
+        price: 75,
+        description: "will be updated",
+        category: "Shinguard"
+    },
+
+    //turf boots
+    {
+        _id: "23",
+        name: "turf_1",
+        image: turf_2,
+        price: 400,
+        description: "will be updated",
+        category: "Turf boots"
+    },
+    {
+        _id: "24",
+        name: "turf_2",
+        image: turf_3,
+        price: 400,
+        description: "will be updated",
+        category: "Turf boots"
+    },
+    {
+        _id: "25",
+        name: "turf_3",
+        image: turf_4,
+        price: 400,
+        description: "will be updated",
+        category: "Turf boots"
+    },
+    {
+        _id: "26",
+        name: "turf_4",
+        image: turf_5,
+        price: 400,
+        description: "will be updated",
+        category: "Turf boots"
+    },
+    {
+        _id: "27",
+        name: "turf_5",
+        image: turf_6,
+        price: 400,
+        description: "will be updated",
+        category: "Turf boots"
+    },
+    {
+        _id: "28",
+        name: "turf_6",
+        image: turf_7,
+        price: 400,
+        description: "will be updated",
+        category: "Turf boots"
+    },
+    {
+        _id: "29",
+        name: "turf_7",
+        image: turf_8,
+        price: 400,
+        description: "will be updated",
+        category: "Turf boots"
+    },
+
 ]

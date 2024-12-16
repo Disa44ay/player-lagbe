@@ -1,0 +1,138 @@
+/* Background */
+.available-games-section {
+    background: url('https://www.transparenttextures.com/patterns/grass-1.png'),
+                linear-gradient(135deg, #2c6e49, #4caf50); /* Grass field texture + gradient */
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container */
+  .games-container {
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  /* Titles */
+  .games-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #2c6e49; /* Dark green */
+  }
+  
+  .games-subtitle {
+    font-size: 1.8rem;
+    color: #4caf50; /* Bright green */
+  }
+  
+  /* Table Wrapper */
+  .table-wrapper {
+    overflow-x: auto; /* Enables scrolling */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  
+  .table-wrapper::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+  
+  /* Table Styles */
+  .games-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .games-table th,
+  .games-table td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #dcdcdc;
+  }
+  
+  .games-table th {
+    background-color: #4caf50; /* Green header */
+    color: white;
+  }
+  
+  .games-table tr:nth-child(even) {
+    background-color: rgba(220, 220, 220, 0.6);
+  }
+  
+  .games-table tr:hover {
+    background-color: rgba(200, 230, 200, 0.8); /* Light green hover */
+  }
+  
+  /* Action Buttons */
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .games-btn {
+    padding: 8px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .games-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .join-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .join-btn:hover {
+    background-color: #388e3c;
+  }
+  
+  
+  .cancel-btn {
+    background-color: #ff7043; /* Muted red/orange */
+    color: white;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #d75c36; /* Darker red/orange */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .games-container {
+      padding: 20px;
+    }
+  
+    .games-title {
+      font-size: 2rem;
+    }
+  
+    .games-subtitle {
+      font-size: 1.5rem;
+    }
+  
+    .games-table th,
+    .games-table td {
+      font-size: 0.9rem;
+    }
+  
+    .games-btn {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+    }
+  }
+  

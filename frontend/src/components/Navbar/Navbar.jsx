@@ -1,10 +1,16 @@
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("Teams");
+    const navigate = useNavigate();
+
+    // Handle navigation to the cart
+    const handleCartClick = () => {
+        navigate("/cart"); // Navigate to the Cart page
+    };
 
     return (
         <div className="navbar">
@@ -30,10 +36,16 @@ const Navbar = ({ setShowLogin }) => {
                 >
                     <Link to="/profile">Profile</Link>
                 </li>
+                <li 
+                    onClick={() => setMenu("Demo")} 
+                    className={menu === "Demo" ? "active" : ""}
+                >
+                    <Link to="/demo">Demo</Link>
+                </li>
             </ul>
 
             <div className="navbar-right">
-                <div className="navbar-search-icon">
+                <div className="navbar-search-icon" onClick={handleCartClick}>
                     <img src={assets.icon_cart} alt="Cart Icon" />
                     <div className="dot"></div>
                 </div>

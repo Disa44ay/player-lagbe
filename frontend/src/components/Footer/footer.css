@@ -1,0 +1,88 @@
+/* Page Container for Flexbox */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the page container fills the viewport height */
+}
+
+/* Main Content Pushes Footer Down */
+.main-content {
+    flex: 1; /* Fills the space between the header and footer */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #A2F1AB;
+    color: rgb(55, 47, 47);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 8vw;
+    padding-top: 80px;
+    margin-top: auto; /* Automatically push the footer down if there's space */
+}
+
+/* Footer Content Grid */
+.footer-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 80px;
+}
+
+.footer-content p {
+    color: rgb(55, 47, 47);
+    text-align: left;
+}
+
+/* Logo Styling */
+.logo {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3)); /* Stronger shadow for better contrast */
+}
+
+/* Copyright Styling */
+.footer-copyright {
+    color: rgb(55, 47, 47);
+}
+
+/* Footer Sections */
+.footer-content-left,
+.footer-content-center,
+.footer-content-right {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+
+.footer-content-left li,
+.footer-content-center li,
+.footer-content-right li {
+    list-style: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.footer-content-left h2,
+.footer-content-center h2 {
+    color: black;
+}
+
+/* Social Items */
+.footer-social-items img {
+    width: 40px;
+    margin-right: 15px;
+}
+
+/* Horizontal Line */
+.footer hr {
+    width: 100%;
+    height: 2px;
+    margin: 20px 0;
+    background-color: white;
+    border: none;
+}

@@ -1,0 +1,96 @@
+/* Cart Container */
+.cart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #333;
+  }
+  
+  /* Empty Cart Message */
+  .cart-empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+  }
+  
+  /* Cart Items Section */
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Individual Cart Item */
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Cart Item Details */
+  .cart-item-details {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item-details h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .cart-item-details p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Remove Button */
+  .cart-remove-btn {
+    background-color: #ff4500;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart-remove-btn:hover {
+    background-color: #e63e00;
+  }
+  
+  /* Cart Summary */
+  .cart-summary {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .cart-summary h2 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
