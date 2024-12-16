@@ -1,0 +1,106 @@
+/* Shop.css */
+.menu-list-display {
+    display: flex;
+    justify-content: center; /* Center items if there's space */
+    align-items: center;
+    gap: 15px; /* Space between items */
+    overflow-x: auto; /* Enable horizontal scrolling for many items */
+    padding: 10px 0;
+    scrollbar-width: none; /* For Firefox: hide scrollbar */
+    scroll-behavior: smooth; /* Smooth scrolling for better user experience */
+}
+
+.menu-list-display::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge: hide scrollbar */
+}
+
+.menu-list {
+    width: 100%; /* Ensures the container spans the full width */
+    overflow-x: hidden; /* Prevents overflow beyond the visible area */
+}
+
+.menu-list h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.menu-list-text {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.menu-list-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #eaeaea; /* Light border */
+    border-radius: 50%; /* Makes the box round */
+    padding: 10px;
+    min-width: 100px; /* Set a fixed width for scrollable items */
+    min-height: 100px; /* Maintain square shape */
+    background-color: white; /* Background color for items */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.menu-list-items:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    border-color: #ff4500; /* Highlight border on hover */
+}
+
+.menu-list-items img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image fits the circle */
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: 2s;
+}
+
+.menu-list-items p {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333; /* Dark text for name */
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+}
+.menu-list hr{
+    margin: 10px 0px;
+    height: 2px;
+    background-color: #e2e2e2;
+    border: none;
+
+}
+/* Media Query for Small Screens */
+@media (max-width: 750px) {
+    .menu-list-display {
+        justify-content: flex-start; /* Align items to the start for better accessibility */
+        gap: 10px; /* Adjust gap for smaller screens */
+        padding: 10px; /* Add some padding for a clean layout */
+    }
+
+    .menu-list-items {
+        min-width: 80px; /* Adjust item size for smaller screens */
+        min-height: 80px;
+    }
+
+    .menu-list-items img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu-list h1 {
+        font-size: 1.5rem; /* Adjust title size for small screens */
+    }
+
+    .menu-list-text {
+        font-size: 0.9rem; /* Adjust subtitle size for small screens */
+    }
+}
