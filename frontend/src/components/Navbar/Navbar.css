@@ -22,7 +22,7 @@
     display: flex;
     list-style: none;
     gap: 20px;
-    color: tomato; /* White text for visibility */
+    color: #16a085; /* White text for visibility */
     font-size: 18px;
     font-weight: bold;
 }
@@ -30,7 +30,7 @@
 /* Active menu item styling */
 .navbar .active {
     padding-bottom: 2px;
-    border-bottom: 2px solid #ff5722; /* Bright orange-red accent for active items */
+    border-bottom: 2px solid #1abc9c; /* Bright orange-red accent for active items */
 }
 
 /* Navbar search icon and cart */
@@ -65,7 +65,8 @@
 .navbar button {
     background: transparent;
     font-size: 16px;
-    color: #fff;
+    color: #27ae60;
+    font-weight: bold;
     border: 1px solid #ff5722; /* Orange-red border to match the theme */
     padding: 10px 30px;
     border-radius: 50px;

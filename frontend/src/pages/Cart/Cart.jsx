@@ -1,44 +1,78 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Cart.css";
-import { useStore } from "../Storecontext/StoreContext";
+import { Storecontext } from "../../Context/StoreContext";
 
 const Cart = () => {
-  const { cart, removeFromCart, calculateTotalPrice } = useStore();
+  const { cartItems, item_list, removeFromCart } = useContext(Storecontext);
+
+  // Calculate the total price
+  const calculateTotalPrice = () => {
+    let total = 0;
+    item_list.forEach(item => {
+      if (cartItems[item._id] > 0) {
+        total += item.price * cartItems[item._id];
+      }
+    });
+    return total.toFixed(2); // Format the total to 2 decimal places
+  };
 
   return (
-    <div className="cart-container">
-      <h1>Your Cart</h1>
-
-      {Object.keys(cart).length === 0 ? (
-        <p className="cart-empty">Your cart is empty!</p>
-      ) : (
-        <div className="cart-items">
-          {Object.values(cart).map((item) => (
-            <div key={item.id} className="cart-item">
-              <div className="cart-item-details">
-                <img src={item.image} alt={item.name} className="cart-item-img" />
-                <div>
-                  <h2>{item.name}</h2>
-                  <p>Price: ${item.price}</p>
-                  <p>Quantity: {item.quantity}</p>
+    <div className="cart">
+      <div className="cart-items">
+        <div className="cart-items-title">
+          <p>Items</p>
+          <p>Title</p>
+          <p>Price</p>
+          <p>Quantity</p>
+          <p>Total</p>
+          <p>Remove</p>
+        </div>
+        <br />
+        <hr />
+        {item_list.map((item, index) => {
+          if (cartItems[item._id] > 0) {
+            return (
+              <div key={item._id}>
+                <div className="cart-items-item">
+                  <img src={item.image} alt={item.name} />
+                  <p>{item.name}</p>
+                  <p>${item.price}</p>
+                  <p>{cartItems[item._id]}</p>
+                  <p>${(item.price * cartItems[item._id]).toFixed(2)}</p>
+                  <p onClick={() => removeFromCart(item._id)} className="cross">
+                    x
+                  </p>
                 </div>
+                <hr />
               </div>
-              <button
-                className="cart-remove-btn"
-                onClick={() => removeFromCart(item.id)}
-              >
-                Remove
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
+            );
+          }
+          return null;
+        })}
+      </div>
 
-      {Object.keys(cart).length > 0 && (
-        <div className="cart-summary">
-          <h2>Total Price: ${calculateTotalPrice()}</h2>
+      <div className="cart-bottom">
+        <div className="cart-total">
+          <h2>Cart Totals</h2>
+          <div>
+            <div className="cart-toatal-details">
+              <p>Subtotal</p>
+              <p>${calculateTotalPrice()}</p>
+            </div>
+            <hr />
+            <div className="cart-toatal-details">
+              <p>Delivery Fee</p>
+              <p>$2.00</p>
+            </div>
+            <hr />
+            <div className="cart-toatal-details">
+              <b>Total</b>
+              <b>${(parseFloat(calculateTotalPrice()) + 2).toFixed(2)}</b>
+            </div>
+          </div>
+          <button>PROCEED TO PAYMENT</button>
         </div>
-      )}
+      </div>
     </div>
   );
 };

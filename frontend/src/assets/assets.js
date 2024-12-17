@@ -10,6 +10,11 @@ import logo_x from './logo_x.png'
 import logo_fb from './logo_fb.png'
 
 import icon_cart from './icons-cart.gif'
+import icon_plus_t_bg from './icon_plus_t_bg.png'
+import icon_plus_b_bg_gif from './icon_plus_b_bg_gif.gif'
+import icon_plus_w_bg_gif from './icon_plus_w_bg_gif.gif'
+import icon_minus_t_bg from './icon_minus_t_bg.png'
+import icon_minus_b_bg from './icon-minus_b_bg.png'
 import header_temp from './header_temp.png'
 
 
@@ -72,6 +77,11 @@ export const assets = {
     logo_new_white_t_bg,
     icon_cross,
     icon_cross_white,
+    icon_plus_b_bg_gif,
+    icon_plus_t_bg,
+    icon_plus_w_bg_gif,
+    icon_minus_b_bg,
+    icon_minus_t_bg,
     logo_fb,
     logo_linked_in,
     logo_x
