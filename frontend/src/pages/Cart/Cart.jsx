@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import "./Cart.css";
 import { Storecontext } from "../../Context/StoreContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { cartItems, item_list, removeFromCart } = useContext(Storecontext);
+  const { cartItems, item_list, removeFromCart, getTotalCartAmount } = useContext(Storecontext);
 
-  // Calculate the total price
+  const navigate = useNavigate();
+  /* Calculate the total price
   const calculateTotalPrice = () => {
     let total = 0;
     item_list.forEach(item => {
@@ -14,7 +16,7 @@ const Cart = () => {
       }
     });
     return total.toFixed(2); // Format the total to 2 decimal places
-  };
+  };*/
 
   return (
     <div className="cart">
@@ -57,20 +59,20 @@ const Cart = () => {
           <div>
             <div className="cart-toatal-details">
               <p>Subtotal</p>
-              <p>${calculateTotalPrice()}</p>
+              <p>${getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className="cart-toatal-details">
               <p>Delivery Fee</p>
-              <p>$2.00</p>
+              <p>${getTotalCartAmount()===0?0:2}</p>
             </div>
             <hr />
             <div className="cart-toatal-details">
               <b>Total</b>
-              <b>${(parseFloat(calculateTotalPrice()) + 2).toFixed(2)}</b>
+              <b>${getTotalCartAmount()===0?0:getTotalCartAmount() + 2}</b>
             </div>
           </div>
-          <button>PROCEED TO PAYMENT</button>
+          <button onClick = {()=>navigate('/order')}>Checkout</button>
         </div>
       </div>
     </div>

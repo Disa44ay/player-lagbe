@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
 import Demo from "./pages/Demo/Demo"
 import Cart from "./pages/Cart/Cart";
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/Teams" element={<Teams />} />
           <Route path="/Shop" element={<Shop />} />
           <Route path="/profile" element = {<Profile/>}/>
+          <Route path="/order" element = {<PlaceOrder/>} />
         </Routes>
       </div>
       <Footer />
