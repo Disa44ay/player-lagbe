@@ -1,0 +1,17 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+}
+/* Logo styling */
+.logo {
+    width: max(10%, 80px);
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3)); /* Stronger shadow for better contrast */
+}
+.navbar .profile{
+    width: 40px;
+    margin: 20px;
+}
