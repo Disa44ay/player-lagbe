@@ -1,6 +1,7 @@
-import express from "express";
-import { addItem, listItem,removeItem } from "../controllers/itemController.js";
-import multer from "multer";
+//routes.js
+import express from "express"
+import { addItem, listItem,removeItem } from "../controllers/itemController.js"
+import multer from "multer"
 
 const itemRouter = express.Router();
 

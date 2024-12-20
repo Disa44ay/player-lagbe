@@ -1,0 +1,155 @@
+/* AddItems.css */
+
+/* General styles */
+.addItems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #eaf5e0; /* Subtle green background */
+    font-family: 'Arial', sans-serif;
+    padding: 1rem;
+  }
+  
+  .addItems form {
+    background-color: #ffffff; /* White form background */
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Upload image styles */
+  .add-img-upload {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .add-img-upload img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border: 2px dashed #28a745; /* Green border */
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+  
+  .add-img-upload img:hover {
+    background-color: #28a745; /* Green hover effect */
+    border-color: #1e7e34;
+    transform: scale(1.05);
+  }
+  
+  /* Input fields */
+  .add-item-name input,
+  .add-item-description textarea,
+  .add-category select,
+  .add-price input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .add-item-name input:focus,
+  .add-item-description textarea:focus,
+  .add-category select:focus,
+  .add-price input:focus {
+    outline: none;
+    border-color: #28a745; /* Focus with green */
+  }
+  
+  /* Labels and text */
+  .add-item-name p,
+  .add-item-description p,
+  .add-category p,
+  .add-price p {
+    margin-bottom: 0.5rem;
+    color: #28a745; /* Green labels */
+    font-weight: bold;
+  }
+  
+  /* Price and category layout */
+  .add-item-price {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .add-category,
+  .add-price {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  /* Button styles */
+  .add-btn {
+    background-color: #28a745; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+  }
+  
+  .add-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
+  .add-btn:active {
+    background-color: #1e7e34;
+    transform: scale(0.95);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .addItems form {
+      padding: 1.5rem;
+    }
+  
+    .add-item-price {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .add-btn {
+      max-width: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .add-img-upload img {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .addItems form {
+      padding: 1rem;
+    }
+  
+    .add-item-name input,
+    .add-item-description textarea,
+    .add-category select,
+    .add-price input {
+      font-size: 0.9rem;
+    }
+  }
+  

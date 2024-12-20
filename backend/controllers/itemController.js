@@ -4,6 +4,10 @@ import fs from "fs";
 
 // Add new item
 const addItem = async (req, res) => {
+  // Debugging incoming request
+  console.log("File:", req.file); // Logs the uploaded file info
+  console.log("Body:", req.body); // Logs the text fields in the request
+
   if (
     !req.body.name ||
     !req.body.description ||
@@ -47,21 +51,21 @@ const listItem = async (req, res) => {
 };
 
 //remove item
-const removeItem = async (req, res) =>{
-  try{
+const removeItem = async (req, res) => {
+  try {
     const item = await itemModel.findById(req.body.id);
-    
+
     //to delete the image form the uploads folder
-    fs.unlink(`uploads/${item.image}`,()=>{})
+    fs.unlink(`uploads/${item.image}`, () => {});
 
     //to delete the data from the database
-    await  itemModel.findByIdAndDelete(req.body.id);
-    res.json({success:true,message:"Item removed"})
-  }catch(error){
+    await itemModel.findByIdAndDelete(req.body.id);
+    res.json({ success: true, message: "Item removed" });
+  } catch (error) {
     console.log(error);
-    res.json({success:false,message: "Error"})
+    res.json({ success: false, message: "Error" });
   }
-}
+};
 
 // Correctly export addItem
-export { addItem, listItem, removeItem};
+export { addItem, listItem, removeItem };
