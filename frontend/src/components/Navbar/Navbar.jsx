@@ -1,16 +1,26 @@
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Storecontext } from "../../Context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("Teams");
+  const { token, setToken } = useContext(Storecontext);
   const navigate = useNavigate();
 
   // Handle navigation to the cart
   const handleCartClick = () => {
     navigate("/cart"); // Navigate to the Cart page
   };
+
+  // Handle logout
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken(""); // Clear the token
+    navigate("/"); // Navigate to the home page
+  };
+
 
   return (
     <div className="navbar">
@@ -46,12 +56,18 @@ const Navbar = ({ setShowLogin }) => {
 
       <div className="navbar-right">
         <div className="navbar-search-icon" onClick={handleCartClick}>
-          <Link to="/Cart">
-            <img src={assets.icon_cart} alt="Cart Icon" />{" "}
+          <Link to="/cart">
+            <img src={assets.icon_cart} alt="Cart Icon" />
           </Link>
           <div className="dot"></div>
         </div>
-        <button onClick={() => setShowLogin(true)}>Sign-in</button>
+        {!token ? (
+          <button onClick={() => setShowLogin(true)}>Sign-in</button>
+        ) : (
+          <div className="navbar-logout">
+            <button onClick={handleLogout} className="logout-button">Logout</button>
+          </div>
+        )}
       </div>
     </div>
   );

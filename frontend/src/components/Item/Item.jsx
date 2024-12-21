@@ -1,39 +1,45 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import "./Item.css";
 import { assets } from "../../assets/assets";
 import { Storecontext } from "../../Context/StoreContext";
 
 const Item = ({ id, name, price, description, image }) => {
-  const {cartItems,addToCart,removeFromCart}= useContext(Storecontext)
+  const { cartItems, addToCart, removeFromCart, url } = useContext(Storecontext);
+
+  const getImageUrl = (image) => `${url}/images/${image}`; // Utility function for image URLs
 
   return (
     <div className="item">
       <div className="item-image-container">
-        <img src={image} alt="" className="item-image" />
-        {!cartItems[id] ? (
+        <img
+          src={getImageUrl(image)}
+          alt={name}
+          className="item-image"
+          onError={(e) => (e.target.src = assets.default_image)} // Fallback for missing images
+        />
+        {!cartItems?.[id] ? (
           <img
             className="add"
             onClick={() => addToCart(id)}
             src={assets.icon_plus_b_bg_gif}
-            alt=""
+            alt="Add to cart"
           />
         ) : (
           <div className="item-counter">
             <img
               onClick={() => removeFromCart(id)}
               src={assets.icon_minus_t_bg}
-              alt=""
+              alt="Remove from cart"
             />
             <p>{cartItems[id]}</p>
             <img
               onClick={() => addToCart(id)}
               src={assets.icon_plus_t_bg}
-              alt=""
+              alt="Add more to cart"
             />
           </div>
         )}
       </div>
-
       <div className="item-info">
         <p>{name}</p>
         <p className="item-description">{description}</p>
@@ -44,4 +50,3 @@ const Item = ({ id, name, price, description, image }) => {
 };
 
 export default Item;
-

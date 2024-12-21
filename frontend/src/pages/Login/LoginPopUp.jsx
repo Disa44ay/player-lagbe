@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./LoginPopUp.css";
 import { assets } from "../../assets/assets";
+import { Storecontext } from "../../Context/StoreContext";
+import axios from "axios"
+
 
 const LoginPopUp = ({ setShowLogin }) => {
+
+  const {url,setToken} = useContext(Storecontext)
 
   const [currentState, setCurrState] = useState("Login");
   const [data,setData] = useState({
@@ -17,9 +22,31 @@ const LoginPopUp = ({ setShowLogin }) => {
     setData(data=>({...data,[name]:value}))
   }
 
+  const onLogin = async(event) => {
+    event.preventDefault();
+
+    //api call
+    let newUrl = url;
+    if(currentState === 'Login'){
+      newUrl += "/api/user/login"
+    }else{
+      newUrl += "/api/user/register"
+    }
+    const response = await axios.post(newUrl,data);
+    
+    if(response.data.success){
+      setToken(response.data.token);
+      localStorage.setItem("token",response.data.token);
+      setShowLogin(false)
+    }else{
+      alert(response.data.message)
+    }
+  }
+
+
   return (
     <div className="login-popup">
-      <form action="" className="login-popup-container">
+      <form onSubmit={onLogin} className="login-popup-container">
         <div className="login-popup-title">
           <h2>{currentState}</h2>
           <img
@@ -32,11 +59,11 @@ const LoginPopUp = ({ setShowLogin }) => {
         </div>
 
         <div className="login-popup-input">
-          {currentState === "Sign Up" && (
-            <input type="text" placeholder="Your Name" required />
-          )}
-          <input type="email" placeholder="Your Email" required />
-          <input type="password" placeholder="Password" required />
+          {currentState === "Login"?<></>:
+            <input name ='name' onChange={onChangehandler} value={data.name} type="text" placeholder="Your Name" required />
+          }
+          <input name ='email' onChange={onChangehandler} value={data.email} type="email" placeholder="Your Email" required />
+          <input name ='password' onChange={onChangehandler} value={data.password} type="password" placeholder="Password" required />
         </div>
 
         <button type="submit">

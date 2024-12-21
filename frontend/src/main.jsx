@@ -3,10 +3,13 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-import DemoStorecontextProvider from "./DemoContext/DemoStoreContext.jsx";
-import StorecontextProvider from "./Context/StoreContext.jsx";
+import { StorecontextProvider } from "./Context/StoreContext"; // Named import
 
-createRoot(document.getElementById("root")).render(
+// Create a root for rendering
+const root = createRoot(document.getElementById("root"));
+
+// Render the application
+root.render(
   <BrowserRouter>
     <StorecontextProvider>
       <App />
