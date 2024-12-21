@@ -1,5 +1,5 @@
 // itemController.js
-import itemModel from "../models/playerLagbeModel.js";
+import itemModel from "../models/ItemModel.js";
 import fs from "fs";
 
 // Add new item

@@ -1,0 +1,49 @@
+/* PlayedIn.css */
+.played-in {
+    background-color: #1b3d25;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .played-in h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .tournaments, .teams {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .tournament, .team {
+    background-color: #2d5a38;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .add-more {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-more:hover {
+    background-color: #45a049;
+  }
