@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar'
-import Sidebar from '../components/Sidebar/sidebar'
+import Sidebar from '../components/Sidebar/Sidebar'
 import { Route, Routes } from 'react-router-dom'
 import AddItems from '../pages/AddItems/AddItems'
 import ItemList from '../pages/ItemList/ItemList'
