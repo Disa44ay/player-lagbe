@@ -4,6 +4,8 @@ import cors from "cors";
 import { connectDB } from "./config/db.js";
 import itemRouter from "./routes/itemRoute.js";
 import userRouter from "./routes/UserRoute.js";
+import RecruitmentRoute from "./routes/ReqruitmentRoute.js";
+
 import 'dotenv/config'
 
 //app config
@@ -31,6 +33,10 @@ app.use('/images', express.static('uploads'))
 //for user authentications
 app.use('/api/user',userRouter)
 
+// for recruitment info
+app.use("/api/recruitment", RecruitmentRoute); // Add recruitment routes
+
+
 app.get("/", (req, res) => {
   res.send("API working");
 });
@@ -39,4 +45,3 @@ app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
 });
 
-//mongodb+srv://Disarray:223001112@cluster0.uadsh.mongodb.net/?
