@@ -1,0 +1,111 @@
+/* Recruitment List Main Container */
+.recruitment-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eaf5e0; /* Subtle green background */
+    padding: 2rem;
+}
+
+.recruitment-list-container p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #28a745; /* Green title */
+    margin-bottom: 1rem;
+}
+
+/* Recruitment Table Styling */
+.recruitment-table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.recruitment-table-header {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 1fr 1fr; /* Define column structure */
+    align-items: center;
+    background-color: #28a745; /* Green header */
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding: 1.5rem;
+    font-weight: normal; /* Less bold */
+    text-transform: uppercase;
+}
+
+.recruitment-table-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 1fr 1fr; /* Define column structure */
+    align-items: center;
+    padding: 1.5rem;
+    border: 2px solid #28a745;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.recruitment-table-row p {
+    margin: 0;
+    color: #333; /* Neutral text */
+    font-weight: normal; /* Less bold */
+    text-align: center;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+}
+
+/* Action Button Styling */
+.cursor-remove {
+    text-align: center;
+    color: #ff0000; /* Action color */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cursor-remove:hover {
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+/* Divider Styling */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #28a745; /* Green separator */
+    margin: 15px 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .recruitment-table-header,
+    .recruitment-table-row {
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* Fewer columns on medium screens */
+        padding: 1rem;
+    }
+
+    .recruitment-table-header b:nth-child(n+5),
+    .recruitment-table-row p:nth-child(n+5) {
+        display: none; /* Hide less important columns */
+    }
+}
+
+@media (max-width: 480px) {
+    .recruitment-table-header,
+    .recruitment-table-row {
+        grid-template-columns: 1fr 1.5fr 1fr; /* Further simplify for mobile */
+        padding: 0.5rem;
+    }
+
+    .recruitment-table-row p {
+        font-size: 0.8rem;
+    }
+
+    .cursor-remove {
+        font-size: 0.9rem;
+    }
+}

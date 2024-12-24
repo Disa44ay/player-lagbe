@@ -1,25 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import { useContext } from "react";
+import { RecruitmentContext } from "../../Context/RecruitmentContext.jsx";
 import './AvailableGames.css';
 
 const AvailableGames = () => {
-  const [soloGames, setSoloGames] = useState([]);
-  const [teamGames, setTeamGames] = useState([]);
+  const { availableGames, loading, error } = useContext(RecruitmentContext);
 
-  useEffect(() => {
-    // Mock data
-    const fetchedSoloGames = [
-      { venue: 'City Stadium', time: '10:00:00 - 11:30:00', date: '2024-12-20', players: 5, fee: '$10', contact: '123-456-7890' },
-      { venue: 'Downtown Arena', time: '12:00:00 - 13:30:00', date: '2024-12-21', players: 8, fee: '$15', contact: '987-654-3210' },
-    ];
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-    const fetchedTeamGames = [
-      { venue: 'Westfield Ground', time: '15:00:00 - 16:30:00', teamOf: '7', date: '2024-12-22', fee: '$20', contact: '456-789-1230' },
-      { venue: 'Eastside Park', time: '17:00:00 - 18:30:00', teamOf: '10', date: '2024-12-23', fee: '$25', contact: '654-321-9870' },
-    ];
+  if (error) {
+    return <div>{error}</div>;
+  }
 
-    setSoloGames(fetchedSoloGames);
-    setTeamGames(fetchedTeamGames);
-  }, []);
+  // Separate games into solo and team categories based on teamRecruitment
+  const soloGames = availableGames.filter((game) => !game.isTeamRecruitment);
+  const teamGames = availableGames.filter((game) => game.isTeamRecruitment);
 
   return (
     <div className="available-games-section">
@@ -48,10 +44,10 @@ const AvailableGames = () => {
                     <tr key={index}>
                       <td>{game.venue}</td>
                       <td>{game.time}</td>
-                      <td>{game.date}</td>
-                      <td>{game.players}</td>
-                      <td>{game.fee}</td>
-                      <td>{game.contact}</td>
+                      <td>{new Date(game.date).toLocaleDateString()}</td>
+                      <td>{game.players || "TBA"}</td>
+                      <td>{game.slotFee || "TBA"}</td>
+                      <td>{game.contact || "TBA"}</td>
                       <td className="action-buttons">
                         <button className="games-btn join-btn">Join</button>
                         <button className="games-btn cancel-btn">Cancel</button>
@@ -77,7 +73,7 @@ const AvailableGames = () => {
                 <tr>
                   <th>Venue</th>
                   <th>Time</th>
-                  <th>Team(A side)</th>
+                  <th>Team Size</th>
                   <th>Date</th>
                   <th>Slot Fee</th>
                   <th>Contact</th>
@@ -90,10 +86,10 @@ const AvailableGames = () => {
                     <tr key={index}>
                       <td>{game.venue}</td>
                       <td>{game.time}</td>
-                      <td>{game.teamOf}</td>
-                      <td>{game.date}</td>
-                      <td>{game.fee}</td>
-                      <td>{game.contact}</td>
+                      <td>{game.teamOf || "TBA"}</td>
+                      <td>{new Date(game.date).toLocaleDateString()}</td>
+                      <td>{game.slotFee || "TBA"}</td>
+                      <td>{game.contact || "TBA"}</td>
                       <td className="action-buttons">
                         <button className="games-btn join-btn">Join</button>
                         <button className="games-btn cancel-btn">Cancel</button>
