@@ -1,0 +1,116 @@
+/* User List Main Container */
+.user-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4; /* Light grey background */
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.user-list-container h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333; /* Dark grey title */
+    margin-bottom: 1.5rem;
+}
+
+/* User Table Styling */
+.user-list-table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.user-list-table thead tr {
+    background-color: #555; /* Medium grey header */
+    color: #ffffff; /* White text for contrast */
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.user-list-table th{
+    padding: 1rem;
+    text-align: center; /* Center align all text */
+    font-size: 0.9rem;
+    color: white; /* Dark grey text */
+    border-bottom: 1px solid #ccc; /* Light grey borders */
+    vertical-align: middle; /* Ensure vertical centering */
+}
+.user-list-table td.name {
+    font-weight: bold;
+}
+.user-list-table td {
+    padding: 1rem;
+    text-align: center; /* Center align all text */
+    font-size: 0.9rem;
+    color: #333; /* Dark grey text */
+    border-bottom: 1px solid #ccc; /* Light grey borders */
+    vertical-align: middle; /* Ensure vertical centering */
+}
+
+.user-list-table tr:last-child td {
+    border-bottom: none;
+}
+
+.user-list-table tbody tr:hover {
+    background-color: #eaeaea; /* Subtle hover effect */
+}
+
+/* Remove Button Styling */
+.remove-btn {
+    background-color: #ff0000; /* Red button */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.remove-btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .user-list-table thead tr,
+    .user-list-table tbody tr {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Adjust column structure */
+        gap: 10px;
+    }
+
+    .user-list-table th:nth-child(n+4),
+    .user-list-table td:nth-child(n+4) {
+        display: none; /* Hide less important columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .user-list-table thead tr,
+    .user-list-table tbody tr {
+        grid-template-columns: 1fr 1fr; /* Simplify further for mobile */
+    }
+
+    .user-list-table td {
+        font-size: 0.8rem;
+    }
+
+    .remove-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

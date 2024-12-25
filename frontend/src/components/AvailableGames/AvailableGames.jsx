@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { RecruitmentContext } from "../../Context/RecruitmentContext.jsx";
+import AuthContext from "../../Context/AuthContext"; // Import the AuthContext
 import './AvailableGames.css';
 
 const AvailableGames = () => {
   const { availableGames, loading, error } = useContext(RecruitmentContext);
+  const { isLoggedIn } = useContext(AuthContext); // Get the logged-in status
 
   if (loading) {
     return <div>Loading...</div>;
@@ -49,8 +51,14 @@ const AvailableGames = () => {
                       <td>{game.slotFee || "TBA"}</td>
                       <td>{game.contact || "TBA"}</td>
                       <td className="action-buttons">
-                        <button className="games-btn join-btn">Join</button>
-                        <button className="games-btn cancel-btn">Cancel</button>
+                        {isLoggedIn ? (
+                          <>
+                            <button className="games-btn join-btn">Join</button>
+                            <button className="games-btn cancel-btn">Cancel</button>
+                          </>
+                        ) : (
+                          <span>Log in to join</span>
+                        )}
                       </td>
                     </tr>
                   ))
@@ -91,8 +99,14 @@ const AvailableGames = () => {
                       <td>{game.slotFee || "TBA"}</td>
                       <td>{game.contact || "TBA"}</td>
                       <td className="action-buttons">
-                        <button className="games-btn join-btn">Join</button>
-                        <button className="games-btn cancel-btn">Cancel</button>
+                        {isLoggedIn ? (
+                          <>
+                            <button className="games-btn join-btn">Join</button>
+                            <button className="games-btn cancel-btn">Cancel</button>
+                          </>
+                        ) : (
+                          <span>Log in to join</span>
+                        )}
                       </td>
                     </tr>
                   ))

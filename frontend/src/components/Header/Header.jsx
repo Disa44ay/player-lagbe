@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
+import AuthContext from "../../Context/AuthContext";
 
-const Header = ({ setShowLogin, isLoggedIn }) => {
+const Header = ({ setShowLogin }) => {
+  const { isLoggedIn, user } = useContext(AuthContext); // Destructure values from AuthContext
+
   return (
     <div className="header">
       <div className="header-content">
@@ -13,10 +16,12 @@ const Header = ({ setShowLogin, isLoggedIn }) => {
         </p>
         {!isLoggedIn ? (
           // Show "Register Now" button if not logged in
-          <button onClick={() => setShowLogin(true)}>register now!</button>
+          <button onClick={() => setShowLogin(true)}>Register Now!</button>
         ) : (
-          // Show welcome message if logged in
-          <p className="welcome-message">Welcome, you are all set to find your next match!</p>
+          // Show welcome message with username if logged in
+          <p className="welcome-message">
+            Welcome,You are all set to find your next match!
+          </p>
         )}
       </div>
     </div>

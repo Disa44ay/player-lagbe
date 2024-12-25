@@ -31,7 +31,7 @@ const createToken = (id) => {
 };
 
 //registered user
-const resgisteredUser = async (req, res) => {
+const registeredUser = async (req, res) => {
   const { name, password, email } = req.body;
   try {
     //to check if user withs ame email exist
@@ -75,4 +75,31 @@ const resgisteredUser = async (req, res) => {
   }
 };
 
-export { loginUser, resgisteredUser };
+// Remove user by admin
+const removeUser = async (req, res) => {
+  const { userId } = req.body; // Assuming user ID is passed in the request body
+  try {
+    const user = await userModel.findByIdAndDelete(userId);
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+    res.json({ success: true, message: "User removed successfully" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error removing user" });
+  }
+};
+
+// Get all users
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await userModel.find({}, { name: 1, email: 1, password: 1 }); // Fetch name, email, and hashed password
+    res.json({ success: true, users });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error fetching users" });
+  }
+};
+
+export { loginUser, registeredUser, removeUser, getAllUsers };
+
