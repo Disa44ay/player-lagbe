@@ -21,7 +21,6 @@ const Navbar = ({ setShowLogin }) => {
     navigate("/"); // Navigate to the home page
   };
 
-
   return (
     <div className="navbar">
       <Link to="/">
@@ -35,16 +34,22 @@ const Navbar = ({ setShowLogin }) => {
           <Link to="/teams">Teams</Link>
         </li>
         <li
-          onClick={() => setMenu("Shop")}
-          className={menu === "Shop" ? "active" : ""}
+          onClick={() => setMenu("Manager")}
+          className={menu === "Manager" ? "active" : ""}
         >
-          <Link to="/shop">Shop</Link>
+          <Link to="/manager">Manager</Link>
         </li>
         <li
           onClick={() => setMenu("Profile")}
           className={menu === "Profile" ? "active" : ""}
         >
           <Link to="/profile">Profile</Link>
+        </li>
+        <li
+          onClick={() => setMenu("Shop")}
+          className={menu === "Shop" ? "active" : ""}
+        >
+          <Link to="/shop">Shop</Link>
         </li>
         <li
           onClick={() => setMenu("Demo")}
@@ -65,7 +70,9 @@ const Navbar = ({ setShowLogin }) => {
           <button onClick={() => setShowLogin(true)}>Sign-in</button>
         ) : (
           <div className="navbar-logout">
-            <button onClick={handleLogout} className="logout-button">Logout</button>
+            <button onClick={handleLogout} className="logout-button">
+              Logout
+            </button>
           </div>
         )}
       </div>

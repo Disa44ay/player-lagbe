@@ -110,6 +110,16 @@
   .cancel-btn:hover {
     background-color: #d75c36; /* Darker red/orange */
   }
+  .see-more-btn{
+    color: #2c6e49;
+    background-color: rgba(220, 220, 220, 0.6);
+    cursor: pointer;
+    font-size: 12px;
+    text-align: right;
+  }
+  .see-more-btn:hover{
+    background-color: rgba(220, 220, 220, 0.6);
+  }
   
   /* Responsive Design */
   @media (max-width: 768px) {

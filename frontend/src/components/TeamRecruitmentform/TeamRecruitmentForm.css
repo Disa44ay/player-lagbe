@@ -35,21 +35,6 @@
     color: black;
     font-weight: bold;
   }
-  .note{
-    color: rgb(86, 85, 85);
-    font-weight: bold;
-    font-style: italic;
-    font-size: small;
-    margin-bottom: 5px;
-  }
-  .btn-login{
-    background-color: white;
-    color:  #e64a19;
-  }
-  .btn-login:hover{
-    background-color: #e64a19 ;
-    color: white;
-  }
   
   h2.text-center {
     color: #1a4d1a;
@@ -106,7 +91,13 @@
     width: 60px;
     text-align: center;
   }
-  
+  .note{
+    color: rgb(86, 85, 85);
+    font-weight: bold;
+    font-style: italic;
+    font-size: small;
+    margin-bottom: 5px;
+  }
   .btn-recruit {
     background-color: #f2a700;
     color: white;

@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
       <hr />
       <p className="footer-copyright">
-        copyright 2023 &copy PlayerLagbe.com - All Right Reserved
+        copyright 2024 © PlayerLagbe.com - All Right Reserved
       </p>
     </div>
   )

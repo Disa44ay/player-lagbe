@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import "./Home.css";
 import RecruitmentForm from "../../components/Recruitmentform/RecruitmentForm";
 import AvailableGames from "../../components/AvailableGames/AvailableGames";
+import { AuthContextProvider } from "../../Context/AuthContext";
 
 const Home = ({ setShowLogin, isLoggedIn }) => {
   return (

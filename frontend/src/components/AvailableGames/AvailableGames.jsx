@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { RecruitmentContext } from "../../Context/RecruitmentContext.jsx";
 import AuthContext from "../../Context/AuthContext"; // Import the AuthContext
 import './AvailableGames.css';
@@ -6,6 +6,9 @@ import './AvailableGames.css';
 const AvailableGames = () => {
   const { availableGames, loading, error } = useContext(RecruitmentContext);
   const { isLoggedIn } = useContext(AuthContext); // Get the logged-in status
+
+  const [showMoreSolo, setShowMoreSolo] = useState(false);
+  const [showMoreTeams, setShowMoreTeams] = useState(false);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -15,9 +18,35 @@ const AvailableGames = () => {
     return <div>{error}</div>;
   }
 
+  // Get the current date and time
+  const currentDateTime = new Date();
+
+  // Function to check if a game is valid based on the current time
+  const isValidGame = (game) => {
+    const gameDate = new Date(game.date);
+    const gameStartTime = new Date(`${game.date}T${game.startTime}`);
+
+    // Check if the game date is in the past
+    if (gameDate < currentDateTime) {
+      return false;
+    }
+
+    // Check if the game start time is within 4 hours of the current time
+    const timeDifference = (gameStartTime - currentDateTime) / (1000 * 60 * 60); // Convert ms to hours
+    if (timeDifference < 4) {
+      return false;
+    }
+
+    return true;
+  };
+
   // Separate games into solo and team categories based on teamRecruitment
-  const soloGames = availableGames.filter((game) => !game.isTeamRecruitment);
-  const teamGames = availableGames.filter((game) => game.isTeamRecruitment);
+  const soloGames = availableGames.filter((game) => !game.isTeamRecruitment && isValidGame(game));
+  const teamGames = availableGames.filter((game) => game.isTeamRecruitment && isValidGame(game));
+
+  // Show no more than 3 games in each section
+  const visibleSoloGames = showMoreSolo ? soloGames : soloGames.slice(0, 2);
+  const visibleTeamGames = showMoreTeams ? teamGames : teamGames.slice(0, 2);
 
   return (
     <div className="available-games-section">
@@ -41,8 +70,8 @@ const AvailableGames = () => {
                 </tr>
               </thead>
               <tbody>
-                {soloGames.length > 0 ? (
-                  soloGames.map((game, index) => (
+                {visibleSoloGames.length > 0 ? (
+                  visibleSoloGames.map((game, index) => (
                     <tr key={index}>
                       <td>{game.venue}</td>
                       <td>{game.time}</td>
@@ -70,6 +99,16 @@ const AvailableGames = () => {
               </tbody>
             </table>
           </div>
+          {soloGames.length > 2 && !showMoreSolo && (
+            <button className="see-more-btn" onClick={() => setShowMoreSolo(true)}>
+              See More...
+            </button>
+          )}
+          {showMoreSolo && soloGames.length > 2 && (
+            <button className="see-more-btn" onClick={() => setShowMoreSolo(false)}>
+              Show Less
+            </button>
+          )}
         </div>
 
         {/* Teams Section */}
@@ -89,8 +128,8 @@ const AvailableGames = () => {
                 </tr>
               </thead>
               <tbody>
-                {teamGames.length > 0 ? (
-                  teamGames.map((game, index) => (
+                {visibleTeamGames.length > 0 ? (
+                  visibleTeamGames.map((game, index) => (
                     <tr key={index}>
                       <td>{game.venue}</td>
                       <td>{game.time}</td>
@@ -118,6 +157,16 @@ const AvailableGames = () => {
               </tbody>
             </table>
           </div>
+          {teamGames.length > 2 && !showMoreTeams && (
+            <button className="see-more-btn" onClick={() => setShowMoreTeams(true)}>
+              See More...
+            </button>
+          )}
+          {showMoreTeams && teamGames.length > 2 && (
+            <button className="see-more-btn" onClick={() => setShowMoreTeams(false)}>
+              Show Less
+            </button>
+          )}
         </div>
       </div>
     </div>

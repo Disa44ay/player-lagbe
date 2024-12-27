@@ -1,48 +1,48 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import './RecruitmentForm.css';
-import { AuthContext } from '../../Context/AuthContext'; 
+import './TeamRecruitmentForm.css';
+import { RecruitmentContext } from '../../Context/RecruitmentContext';  
 
-const RecruitmentForm = () => {
+const TeamRecruitmentForm = () => {
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  const [members, setMembers] = useState(0);
+  const [teamSize, setTeamSize] = useState(0); // Use teamSize instead of members
   const [venue, setVenue] = useState('');
   const [slotFee, setSlotFee] = useState('');
   const [date, setDate] = useState('');
   const [contact, setContact] = useState('');
-  const [error, setError] = useState('');
 
-  const { isLoggedIn } = useContext(AuthContext);  // Get the logged-in status
+  const { setAvailableGames, loading, error } = useContext(RecruitmentContext);  // Use RecruitmentContext
 
   const handleStartTimeChange = (e) => setStartTime(e.target.value);
   const handleEndTimeChange = (e) => setEndTime(e.target.value);
-  const incrementMembers = () => setMembers(members + 1);
-  const decrementMembers = () => {
-    if (members > 0) setMembers(members - 1);
+  const incrementTeamSize = () => setTeamSize(teamSize + 1); // Increment team size
+  const decrementTeamSize = () => {
+    if (teamSize > 0) setTeamSize(teamSize - 1); // Decrement team size
   };
 
-  // Function to check if the selected time is at least 6 hours in the future
-  const isFutureDateTime = () => {
-    const selectedDateTime = new Date(date + 'T' + startTime);
-    const currentDateTime = new Date();
-    const timeDiff = selectedDateTime - currentDateTime;
+  // Helper function to check if the selected recruitment time is before the current time
+  const isFutureDate = () => {
+    const now = new Date();
+    const selectedDate = new Date(date);
+    const selectedStartTime = new Date(`${selectedDate.toISOString().split('T')[0]}T${startTime}`);
     
-    return timeDiff >= 6 * 60 * 60 * 1000; // Check if the time difference is 6 hours or more
+    return selectedStartTime > now;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!isFutureDateTime()) {
-      setError('The selected date and time must be at least 6 hours in the future.');
+    // Check if the recruitment time is in the future
+    if (!isFutureDate()) {
+      alert('You cannot post recruitment for a time that is before the current time.');
       return;
     }
 
-    setError(''); // Clear any previous error
-
+    // Format the date to match the backend format
     const formattedDate = new Date(date).toISOString();
 
+    // Construct recruitment data based on team recruitment
     const recruitmentData = {
       venue,
       slotFee,
@@ -50,27 +50,30 @@ const RecruitmentForm = () => {
       startTime,
       endTime,
       contact,
-      isTeamRecruitment: false, // Set this flag to false for solo recruitment
-      requiredMembers: members, // Pass the required number of members for solo recruitment
+      isTeamRecruitment: true, 
+      teamSize, 
     };
+
+    console.log('Sending recruitment data:', JSON.stringify(recruitmentData));  // Log data before sending
 
     try {
       const response = await axios.post('http://localhost:4000/api/recruitment/add', recruitmentData);
+      console.log('Server response:', response.data);  // Inspect server response
       if (response.data.success) {
-        alert('Solo recruitment posted successfully!');
+        alert('Team recruitment posted successfully!');
       } else {
-        alert('Error posting solo recruitment!');
+        alert('Error posting team recruitment!');
       }
     } catch (error) {
       console.error('Error posting recruitment:', error.response ? error.response.data : error.message);
-      alert('Failed to post solo recruitment');
+      alert('Failed to post team recruitment');
     }
   };
 
   return (
     <section className="recruitment-info">
       <div className="container">
-        <h2 className="text-center">Solo Recruitment</h2>
+        <h2 className="text-center">Team Recruitment</h2>
         <p className="note">
                 *You cannot post a recruitment for a time that is starting less than 6 hours from now.
               </p>
@@ -92,7 +95,7 @@ const RecruitmentForm = () => {
             <input
               type="text"
               id="slotFee"
-              placeholder="Slot (per-person)"
+              placeholder="Slot (per-team)"
               value={slotFee}
               onChange={(e) => setSlotFee(e.target.value)}
               required
@@ -136,13 +139,13 @@ const RecruitmentForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="members">Required Members:</label>
+            <label htmlFor="teamSize">Team Size (without substitutions):</label>
             <div className="member-buttons">
-              <button type="button" className="btn-minus" onClick={decrementMembers}>
+              <button type="button" className="btn-minus" onClick={decrementTeamSize}>
                 -
               </button>
-              <input type="number" id="members" value={members} min="0" readOnly />
-              <button type="button" className="btn-plus" onClick={incrementMembers}>
+              <input type="number" id="teamSize" value={teamSize} min="0" readOnly />
+              <button type="button" className="btn-plus" onClick={incrementTeamSize}>
                 +
               </button>
             </div>
@@ -160,23 +163,13 @@ const RecruitmentForm = () => {
             />
           </div>
 
-          {isLoggedIn ? (
-            <>
-              <button type="submit" className="btn-recruit">
-                Recruit
-              </button>
-            </>
-          ) : (
-            <p className='login-prompt'>
-              Login to post recruitment
-            </p>
-          )}
+          <button type="submit" className="btn-recruit">
+            Recruit
+          </button>
         </form>
-
-        {error && <p className="error-message">{error}</p>}
       </div>
     </section>
   );
 };
 
-export default RecruitmentForm;
+export default TeamRecruitmentForm;
