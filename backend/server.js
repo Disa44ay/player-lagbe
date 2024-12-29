@@ -7,6 +7,7 @@ import userRouter from "./routes/UserRoute.js";
 import RecruitmentRoute from "./routes/ReqruitmentRoute.js";
 
 import 'dotenv/config'
+import ManagerRoute from "./routes/ManagerRoute.js";
 
 //app config
 const app = express();
@@ -35,6 +36,9 @@ app.use('/api/user',userRouter)
 
 // for recruitment info
 app.use("/api/recruitment", RecruitmentRoute); // Add recruitment routes
+
+//for manager info
+app.use("/api/manager", ManagerRoute);
 
 
 app.get("/", (req, res) => {

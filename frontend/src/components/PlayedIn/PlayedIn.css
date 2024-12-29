@@ -1,49 +1,84 @@
 /* PlayedIn.css */
 .played-in {
-    background-color: #1b3d25;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
-    margin: 20px auto;
-  }
-  
-  .played-in h4 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .tournaments, .teams {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .tournament, .team {
-    background-color: #2d5a38;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    text-align: center;
-    flex: 1 1 calc(33.333% - 10px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .add-more {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    align-self: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-more:hover {
-    background-color: #45a049;
-  }
+  width: 100vh; /* Card width is 70% of viewport height */
+  margin: 20px auto; /* Center card horizontally */
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden;
+  background: url('https://www.transparenttextures.com/patterns/grass-1.png'),
+              linear-gradient(135deg, #2c6e49, #4caf50); /* Green textured background */
+  color: white; /* White text for readability */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Title styling */
+.played-in h4 {
+  font-size: 24px; /* Larger title font */
+  margin-bottom: 20px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for contrast */
+}
+
+/* Container for tournaments and teams */
+.tournaments, 
+.teams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between items */
+  justify-content: center; /* Center-align items */
+}
+
+/* Box styling for tournament and team cards */
+.tournament, 
+.team {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  color: white;
+  padding: 15px;
+  border-radius: 10px; /* Rounded corners for smooth appearance */
+  font-size: 16px;
+  text-align: center;
+  flex: 1 1 calc(33.333% - 20px); /* Responsive grid layout */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+}
+
+/* Hover effect for tournament and team cards */
+.tournament:hover, 
+.team:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+/* Add More button */
+.add-more {
+  color: rgb(30, 34, 32);
+  background-color: transparent;
+  border: none;
+  text-align: right;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 150px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for Add More button */
+.add-more:hover {
+  background-color: transparent; 
+  transform: scale(1.1); /* Slightly larger */
+  color: white;
+}
+
+/* Images for tournament and team cards */
+.tournament img, 
+.team img {
+  width: 100%; /* Full width of the card */
+  height: 150px; /* Fixed height for uniformity */
+  object-fit: cover; /* Ensure entire image fits within the box */
+  border-radius: 10px; /* Rounded corners for images */
+  margin-bottom: 10px; /* Spacing below the image */
+}

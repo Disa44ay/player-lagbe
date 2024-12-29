@@ -4,10 +4,10 @@ import { menu_list } from "../../assets/assets";
 
 const Menu = ({ category, setCategory }) => {
   return (
-    <div className='explore-menu' id='explore-menu'>
+    <div className='menu-container' id='menu-container'>
       <h1>Explore Our Items</h1>
       <p>Menu will be updated based on your feedback</p>
-      <div className='explore-menu-text'>
+      <div className='menu-items'>
         {menu_list.map((item, index) => {
           return (
             <div
@@ -17,7 +17,7 @@ const Menu = ({ category, setCategory }) => {
                 )
               }
               key={index}
-              className={`explore-menu-item ${
+              className={`menu-item ${
                 category === item.menu_name ? "active" : ""
               }`}
             >

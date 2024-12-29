@@ -1,14 +1,44 @@
-.item-display{
+/* Item Display Container */
+.item-display {
     margin-top: 30px;
 }
-.item-display p{
-    color: black;
+
+.item-display p {
+    color: grey; /* Set the text color to white */
     font-weight: bold;
 }
-.item-display-list{
+
+/* Grid Layout for Item Display List */
+.item-display-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     margin-top: 30px;
     gap: 30px;
     row-gap: 50px;
+}
+
+/* Styling for Each Item Box */
+.item-display-list .item-box {
+    background: url('https://www.transparenttextures.com/patterns/grass-1.png'),
+                linear-gradient(135deg, #2c6e49, #4caf50); /* Grass texture + gradient */
+    color: white; /* Make text white inside the box */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Optional: Title Styling inside Each Item Box */
+.item-box h3 {
+    color: white; /* Make titles inside each box white */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* Optional: If you have paragraph text inside the box */
+.item-box p {
+    color: white; /* Ensure any paragraph text is white */
 }

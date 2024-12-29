@@ -1,5 +1,5 @@
-/* Explore Menu */
-.explore-menu {
+/* Menu Container */
+.menu-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,8 +14,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */
 }
 
-/* Heading for Explore Menu */
-.explore-menu h1 {
+/* Heading for Menu */
+.menu-container h1 {
   color: white;
   font-weight: bold;
   font-size: 2rem;
@@ -24,14 +24,14 @@
 }
 
 /* Paragraph Text */
-.explore-menu p {
+.menu-container p {
   color: white;
   font-weight: bold;
   text-align: center;
 }
 
-/* Text description for Explore Menu */
-.explore-menu-text {
+/* Menu Items */
+.menu-items {
   display: flex;
   gap: 20px;
   overflow-x: auto;
@@ -40,13 +40,13 @@
   scrollbar-width: none; /* Firefox */
 }
 
-/* Hide the scrollbar in Explore Menu */
-.explore-menu-text::-webkit-scrollbar {
+/* Hide the scrollbar */
+.menu-items::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
 }
 
-/* Explore Menu Item (Circular Style) */
-.explore-menu-item {
+/* Menu Item (Circular Style) */
+.menu-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,9 +62,11 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
-
-/* Image inside Explore Menu Item */
-.explore-menu-item img {
+.menu-item p{
+  color: rgb(36, 34, 34);
+}
+/* Image inside Menu Item */
+.menu-item img {
   width: 60px; /* Image size inside circle */
   height: 60px;
   object-fit: cover;
@@ -72,41 +74,40 @@
   cursor: pointer;
 }
 
-
-.explore-menu-item.active {
-border: 3px solid #ff073a; /* Bright neon red */
-box-shadow: 0 0 10px #ff073a, 0 0 20px , 0 0 30px #ff073a; /* Neon glow effect */
-padding: 2px;
-transition: box-shadow 0.3s ease, border 0.3s ease; /* Smooth transition */
+.menu-item.active {
+  border: 3px solid #ff073a; /* Bright neon red */
+  box-shadow: 0 0 10px #ff073a, 0 0 20px , 0 0 30px #ff073a; /* Neon glow effect */
+  padding: 2px;
+  transition: box-shadow 0.3s ease, border 0.3s ease; /* Smooth transition */
 }
 
-/* Hover effect for Explore Menu Item */
-.explore-menu-item:hover {
+/* Hover effect for Menu Item */
+.menu-item:hover {
   transform: scale(1.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Media Query for Smaller Screens */
 @media (max-width: 750px) {
-  .explore-menu {
+  .menu-container {
     padding: 10px;
   }
 
-  .explore-menu-item {
+  .menu-item {
     width: 80px;
     height: 80px;
   }
 
-  .explore-menu-item img {
+  .menu-item img {
     width: 50px;
     height: 50px;
   }
 
-  .explore-menu h1 {
+  .menu-container h1 {
     font-size: 1.5rem;
   }
 
-  .explore-menu-text {
+  .menu-items {
     gap: 10px;
   }
 }

@@ -1,0 +1,212 @@
+/* Manager Header Styles */
+.manager-header {
+    background: url('https://www.transparenttextures.com/patterns/grass-1.png'),
+        linear-gradient(135deg, #2c6e49, #4caf50);
+    /* Grass field texture + gradient */
+    color: white;
+    /* White text color */
+    text-align: center;
+    /* Center align text */
+    padding: 20px;
+    /* Padding around the content */
+    display: flex;
+    font-weight: bold;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    /* Half of the page height */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    border-radius: 20px;
+    margin-top: 30px;
+    gap: 20px;
+    background-size: cover, cover;
+    /* Ensures both layers cover the container */
+    position: relative;
+    text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.manager-header-p {
+    display: inline-block;
+    font-size: 1.2rem;
+    /* Medium font size */
+    margin-bottom: 20px;
+    /* Space below the paragraph */
+    max-width: 80%;
+    /* Restrict width for better readability */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.manager-header .manager-button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #66bb6a, #4caf50);
+    /* Gradient background for a fresh look */
+    color: white;
+    border: none;
+    /* Remove border for a cleaner look */
+    font-size: max(1.2vw, 14px);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Soft shadow for a lifting effect */
+    max-width: 250px;
+    /* Set max width to prevent it from becoming too wide */
+    width: 100%;
+    /* Make it responsive to container size */
+    text-align: center;
+    /* Ensure text stays centered */
+}
+
+.manager-header .manager-button:hover {
+    background: linear-gradient(135deg, #4caf50, #66bb6a);
+    /* Invert the gradient on hover for a dynamic effect */
+    transform: translateY(-2px);
+    /* Slight upward movement on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Enhance shadow for a lifted effect */
+}
+
+.manager-header .manager-button:disabled {
+    background-color: #a5d6a7;
+    /* Faded green when disabled */
+    cursor: not-allowed;
+    box-shadow: none;
+    /* Remove shadow when disabled */
+}
+
+
+/* Manager Form Popup Styles (Matching PopupEdit.css) */
+.manager-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.manager-form {
+  background-color: #1e1e2f; /* Dark background for the container */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.manager-form h3 {
+  margin-bottom: 15px;
+  text-align: center; /* Align heading in the center */
+}
+
+.manager-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2b2b3f; /* Slightly lighter background for input fields */
+  color: white; /* White text for better readability */
+}
+
+.manager-form input::placeholder {
+  color: #aaa; /* Placeholder text color */
+}
+
+.manager-form .submit-btn {
+  background-color: #4caf50; /* Green button */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Full-width button */
+}
+.add-player-btn{
+  background-color: #1e1e2f;
+}
+.manager-form button:hover {
+  background-color: #1e1e2f; /* Darker green on hover */
+  color: #4caf50;
+}
+
+.close-button-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #e74c3c; /* Red color on hover */
+  background-color:  transparent;
+}
+
+/* Team Logo and Image Upload */
+.img-upload-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.img-upload-container p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #aaa; /* Subtle text color */
+}
+
+.team-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.input-container input[type="file"] {
+  display: none;
+}
+
+/* Animation for the popup form */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.manager-form-container {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hide scrollbar but keep scrolling behavior */
+.manager-form-container::-webkit-scrollbar {
+  display: none;
+}
+
+.manager-form-container {
+  -ms-overflow-style: none; /* Hides scrollbar in IE10+ */
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+}

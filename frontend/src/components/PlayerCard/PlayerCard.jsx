@@ -12,7 +12,6 @@ const PlayerCard = () => {
 
   return (
     <div className="player-card">
-      <div className="uid">UID: XXXXXX0012</div>
       <div className="profile-image"></div>
       <button className="edit-profile" onClick={togglePopup}>Edit Profile</button>
 

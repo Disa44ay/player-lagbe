@@ -10,13 +10,13 @@ const PlayedIn = () => {
         <div className="tournament">EFC S1</div>
         <div className="tournament">EFC S2</div>
         <div className="tournament">EPI</div>
-        <button className="add-more">Add More</button>
+        <button className="add-more">Add More...</button>
       </div>
 
       <h4>Member of</h4>
       <div className="teams">
         <div className="team">RedLocks</div>
-        <button className="add-more">Add More</button>
+        <button className="add-more">Add More...</button>
       </div>
     </div>
   );

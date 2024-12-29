@@ -34,12 +34,22 @@ const createToken = (id) => {
 const registeredUser = async (req, res) => {
   const { name, password, email } = req.body;
   try {
-    //to check if user withs ame email exist
-    const exists = await userModel.findOne({ email });
-    if (exists) {
+    // Check if user with the same email exists
+    const emailExists = await userModel.findOne({ email });
+    if (emailExists) {
       return res.json({ success: false, message: "User already exists" });
     }
-    //validating email format and strong password
+
+    // Check if user with the same name exists
+    const nameExists = await userModel.findOne({ name });
+    if (nameExists) {
+      return res.json({
+        success: false,
+        message: "User with this name exists. Please enter another username or add symbols to make it unique.",
+      });
+    }
+
+    // Validating email format and strong password
     if (!validator.isEmail(email)) {
       return res.json({
         success: false,
@@ -53,18 +63,18 @@ const registeredUser = async (req, res) => {
       });
     }
 
-    //hashing password
+    // Hashing password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    //to create the newUser with hashed pasword
+    // Creating the new user with hashed password
     const newUser = new userModel({
       name: name,
       email: email,
       password: hashedPassword,
     });
 
-    //to save the newUser with hashed pasword
+    // Saving the new user
     const user = await newUser.save();
     const token = createToken(user._id);
 
