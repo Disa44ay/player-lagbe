@@ -51,12 +51,6 @@ const Navbar = ({ setShowLogin }) => {
         >
           <Link to="/shop">Shop</Link>
         </li>
-        <li
-          onClick={() => setMenu("Demo")}
-          className={menu === "Demo" ? "active" : ""}
-        >
-          <Link to="/demo">Demo</Link>
-        </li>
       </ul>
 
       <div className="navbar-right">

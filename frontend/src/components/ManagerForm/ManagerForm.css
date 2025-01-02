@@ -1,3 +1,81 @@
+/* Manager Info Card Styles */
+.manager-info-container {
+  background: url('https://www.transparenttextures.com/patterns/grass-1.png'),
+    linear-gradient(135deg, #2c6e49, #4caf50);
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.team-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.manager-info-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.manager-info-container p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+.manager-info-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.manager-info-container ul li {
+  margin: 5px 0;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.edit-btn, .delete-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.edit-btn::before {
+  content: '\270E'; /* Pencil icon for edit */
+}
+
+.delete-btn::before {
+  content: '\1F5D1'; /* Trash can icon for delete */
+}
+
 /* Manager Header Styles */
 .manager-header {
     background: url('https://www.transparenttextures.com/patterns/grass-1.png'),

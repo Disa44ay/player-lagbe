@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RecruitmentList from '../pages/RecruitmentList/RecruitmentList'
 import UserList from '../pages/UserList/UserList'
+import TeamList from '../pages/TeamList/TeamList'
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/List" element ={<ItemList url ={url}/>}/>
           <Route path = "/RecruitmentList" element={<RecruitmentList url ={url}/>}/>
           <Route path = "/UserList" element={<UserList url ={url}/>}/>
+          <Route path = "/TeamList" element={<TeamList url ={url}/>}/>
           <Route path = "/Orders" element={<Orders url ={url}/>}/>
         </Routes>
       </div>

@@ -1,48 +1,45 @@
-import React, { useState, useContext } from 'react';
-import axios from 'axios';
-import './TeamRecruitmentForm.css';
-import { RecruitmentContext } from '../../Context/RecruitmentContext';  
+import React, { useState, useContext } from "react";
+import axios from "axios";
+import "./TeamRecruitmentForm.css";
+import { RecruitmentContext } from "../../Context/RecruitmentContext";  
+import { AuthContext } from "../../Context/AuthContext"; // Import AuthContext
 
 const TeamRecruitmentForm = () => {
-  const [startTime, setStartTime] = useState('');
-  const [endTime, setEndTime] = useState('');
-  const [teamSize, setTeamSize] = useState(0); // Use teamSize instead of members
-  const [venue, setVenue] = useState('');
-  const [slotFee, setSlotFee] = useState('');
-  const [date, setDate] = useState('');
-  const [contact, setContact] = useState('');
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [teamSize, setTeamSize] = useState(0); 
+  const [venue, setVenue] = useState("");
+  const [slotFee, setSlotFee] = useState("");
+  const [date, setDate] = useState("");
+  const [contact, setContact] = useState("");
 
-  const { setAvailableGames, loading, error } = useContext(RecruitmentContext);  // Use RecruitmentContext
+  const { setAvailableGames, loading, error } = useContext(RecruitmentContext); 
+  const { isManager } = useContext(AuthContext); // Access isManager from AuthContext
 
   const handleStartTimeChange = (e) => setStartTime(e.target.value);
   const handleEndTimeChange = (e) => setEndTime(e.target.value);
-  const incrementTeamSize = () => setTeamSize(teamSize + 1); // Increment team size
+  const incrementTeamSize = () => setTeamSize(teamSize + 1);
   const decrementTeamSize = () => {
-    if (teamSize > 0) setTeamSize(teamSize - 1); // Decrement team size
+    if (teamSize > 0) setTeamSize(teamSize - 1);
   };
 
-  // Helper function to check if the selected recruitment time is before the current time
   const isFutureDate = () => {
     const now = new Date();
     const selectedDate = new Date(date);
-    const selectedStartTime = new Date(`${selectedDate.toISOString().split('T')[0]}T${startTime}`);
-    
+    const selectedStartTime = new Date(`${selectedDate.toISOString().split("T")[0]}T${startTime}`);
     return selectedStartTime > now;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the recruitment time is in the future
     if (!isFutureDate()) {
-      alert('You cannot post recruitment for a time that is before the current time.');
+      alert("You cannot post recruitment for a time that is before the current time.");
       return;
     }
 
-    // Format the date to match the backend format
     const formattedDate = new Date(date).toISOString();
 
-    // Construct recruitment data based on team recruitment
     const recruitmentData = {
       venue,
       slotFee,
@@ -54,29 +51,29 @@ const TeamRecruitmentForm = () => {
       teamSize, 
     };
 
-    console.log('Sending recruitment data:', JSON.stringify(recruitmentData));  // Log data before sending
-
     try {
-      const response = await axios.post('http://localhost:4000/api/recruitment/add', recruitmentData);
-      console.log('Server response:', response.data);  // Inspect server response
+      const response = await axios.post("http://localhost:4000/api/recruitment/add", recruitmentData);
       if (response.data.success) {
-        alert('Team recruitment posted successfully!');
+        alert("Team recruitment posted successfully!");
       } else {
-        alert('Error posting team recruitment!');
+        alert("Error posting team recruitment!");
       }
     } catch (error) {
-      console.error('Error posting recruitment:', error.response ? error.response.data : error.message);
-      alert('Failed to post team recruitment');
+      console.error("Error posting recruitment:", error.response ? error.response.data : error.message);
+      alert("Failed to post team recruitment");
     }
   };
 
   return (
     <section className="recruitment-info">
       <div className="container">
-        <h2 className="text-center">Team Recruitment</h2>
-        <p className="note">
-                *You cannot post a recruitment for a time that is starting less than 6 hours from now.
-              </p>
+        {/* Conditional Header */}
+        <h2 className="text-center">{isManager ? "Team Recruitment" : "Team Recruitment"}</h2>
+        {!isManager && (
+          <p className="inactive-message">
+            *Become a manager to post team recruitment
+          </p>
+        )}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="venue">Venue:</label>
@@ -87,6 +84,7 @@ const TeamRecruitmentForm = () => {
               value={venue}
               onChange={(e) => setVenue(e.target.value)}
               required
+              disabled={!isManager} // Disable input if not manager
             />
           </div>
 
@@ -99,6 +97,7 @@ const TeamRecruitmentForm = () => {
               value={slotFee}
               onChange={(e) => setSlotFee(e.target.value)}
               required
+              disabled={!isManager} // Disable input if not manager
             />
           </div>
 
@@ -110,6 +109,7 @@ const TeamRecruitmentForm = () => {
               value={date}
               onChange={(e) => setDate(e.target.value)}
               required
+              disabled={!isManager} // Disable input if not manager
             />
           </div>
 
@@ -124,6 +124,7 @@ const TeamRecruitmentForm = () => {
                 placeholder="Start Time (HH:MM:SS)"
                 pattern="\d{2}:\d{2}:\d{2}"
                 required
+                disabled={!isManager} // Disable input if not manager
               />
               <span className="time-separator">-</span>
               <input
@@ -134,6 +135,7 @@ const TeamRecruitmentForm = () => {
                 placeholder="End Time (HH:MM:SS)"
                 pattern="\d{2}:\d{2}:\d{2}"
                 required
+                disabled={!isManager} // Disable input if not manager
               />
             </div>
           </div>
@@ -141,11 +143,21 @@ const TeamRecruitmentForm = () => {
           <div className="form-group">
             <label htmlFor="teamSize">Team Size (without substitutions):</label>
             <div className="member-buttons">
-              <button type="button" className="btn-minus" onClick={decrementTeamSize}>
+              <button
+                type="button"
+                className="btn-minus"
+                onClick={decrementTeamSize}
+                disabled={!isManager} // Disable button if not manager
+              >
                 -
               </button>
               <input type="number" id="teamSize" value={teamSize} min="0" readOnly />
-              <button type="button" className="btn-plus" onClick={incrementTeamSize}>
+              <button
+                type="button"
+                className="btn-plus"
+                onClick={incrementTeamSize}
+                disabled={!isManager} // Disable button if not manager
+              >
                 +
               </button>
             </div>
@@ -160,12 +172,18 @@ const TeamRecruitmentForm = () => {
               value={contact}
               onChange={(e) => setContact(e.target.value)}
               required
+              disabled={!isManager} // Disable input if not manager
             />
           </div>
 
-          <button type="submit" className="btn-recruit">
+          <button type="submit" className={`btn-recruit ${isManager ? "" : "inactive"}`} disabled={!isManager}>
             Recruit
           </button>
+          {!isManager && (
+            <p className="inactive-message">
+              Become a manager to post team recruitment.
+            </p>
+          )}
         </form>
       </div>
     </section>

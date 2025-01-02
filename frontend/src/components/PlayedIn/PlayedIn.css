@@ -29,56 +29,77 @@
   justify-content: center; /* Center-align items */
 }
 
-/* Box styling for tournament and team cards */
-.tournament, 
-.team {
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
-  color: white;
-  padding: 15px;
-  border-radius: 10px; /* Rounded corners for smooth appearance */
-  font-size: 16px;
-  text-align: center;
-  flex: 1 1 calc(33.333% - 20px); /* Responsive grid layout */
+/* Box styling for tournament image slots */
+.tournament-slot, 
+.team-slot {
+  width: 120px; /* Square shape width */
+  height: 120px; /* Square shape height */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 10px; /* Rounded corners */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+  margin-bottom: 10px;
 }
 
-/* Hover effect for tournament and team cards */
-.tournament:hover, 
-.team:hover {
+.tournament-slot:hover,
+.team-slot:hover {
   transform: scale(1.05); /* Slight zoom effect */
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
 }
 
+/* Title under the tournament image slot */
+.tournament-label, 
+.team-label {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional for text readability */
+  position: absolute;
+  bottom: 10px; /* Position label below the image */
+  left: 50%;
+  transform: translateX(-50%); /* Center the text horizontally */
+}
+
 /* Add More button */
 .add-more {
-  color: rgb(30, 34, 32);
-  background-color: transparent;
-  border: none;
-  text-align: right;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 14px;
+  color: #4caf50;
+  background-color: white; /* White background */
+  border: 1px solid #4caf50; /* Green border */
+  border-radius: 20px; /* Rounded corners */
+  padding: 5px 10px;
+  font-size: 12px; /* Smaller font size */
   cursor: pointer;
-  margin-top: 15px;
-  width: 150px;
-  margin-bottom: 15px;
   transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  width: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Hover effect for Add More button */
 .add-more:hover {
-  background-color: transparent; 
-  transform: scale(1.1); /* Slightly larger */
-  color: white;
+  background-color: #4caf50; /* Green background on hover */
+  color: white; /* White text on hover */
+  transform: scale(1.05); /* Slightly larger */
 }
 
-/* Images for tournament and team cards */
-.tournament img, 
-.team img {
-  width: 100%; /* Full width of the card */
-  height: 150px; /* Fixed height for uniformity */
-  object-fit: cover; /* Ensure entire image fits within the box */
+/* Optional: Icon for the "Add More" button */
+.add-more i {
+  margin-right: 5px;
+}
+
+/* Images for tournament image slots (if you plan to use actual images) */
+.tournament-slot img,
+.team-slot img {
+  width: 100%; /* Full width of the slot */
+  height: 100%; /* Full height of the slot */
+  object-fit: cover; /* Ensure image covers the slot */
   border-radius: 10px; /* Rounded corners for images */
-  margin-bottom: 10px; /* Spacing below the image */
 }

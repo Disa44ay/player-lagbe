@@ -1,4 +1,6 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import the styles for Toast notifications
 import "./Manager.css";
 import TeamRecruitmentForm from "../../components/TeamRecruitmentform/Teamrecruitmentform";
 import { AuthContextProvider } from "../../Context/AuthContext";
@@ -8,9 +10,11 @@ const Manager = () => {
   return (
     <div>
       <AuthContextProvider>
-        <ManagerForm/>
+        <ManagerForm />
         <TeamRecruitmentForm />
       </AuthContextProvider>
+      {/* Add ToastContainer for notifications */}
+      <ToastContainer position="top-right" autoClose={5000} />
     </div>
   );
 };

@@ -1,0 +1,146 @@
+.teams-container {
+    background: url('https://www.transparenttextures.com/patterns/grass-1.png'),
+                linear-gradient(135deg, #2c6e49, #4caf50); /* Grass field texture + gradient */
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.teams-container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: white; /* Dark green */
+    margin-bottom: 20px;
+}
+
+.teams-table {
+    width: 90%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+}
+.highlighted-team-name{
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #2c3e50;
+}
+.teams-table th, .teams-table td {
+    padding: 12px;
+    border: 1px solid #dcdcdc;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.teams-table th {
+    background-color: #4caf50; /* Green header */
+    color: white;
+    font-weight: bold;
+}
+
+.teams-table tr:nth-child(even) {
+    background-color: rgba(220, 220, 220, 0.6);
+}
+
+.teams-table tr:hover {
+    background-color: rgba(200, 230, 200, 0.8); /* Light green hover */
+}
+
+.team-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+    border: 1px solid #dcdcdc;
+}
+
+.no-logo {
+    font-style: italic;
+    color: #999;
+}
+
+.details-summary {
+    cursor: pointer;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.details-summary:hover {
+    text-decoration: underline;
+}
+
+.details-summary + ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.details-summary + ul li {
+    padding: 5px 0;
+}
+
+/* Edit and Remove Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.edit-team-button,
+.remove-team-button {
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Edit Button Styling */
+.edit-team-button {
+    background-color: rgb(105, 203, 105); /* Muted orange */
+    color: white;
+}
+
+.edit-team-button:hover {
+    background-color: rgb(94, 201, 94); /* Darker orange */
+    transform: scale(1.05);
+}
+
+/* Remove Button Styling */
+.remove-team-button {
+    background-color: #ff7043; /* Muted red/orange */
+    color: white;
+}
+
+.remove-team-button:hover {
+    background-color: #d75c36; /* Darker red/orange */
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .teams-container {
+        padding: 20px;
+    }
+
+    .teams-table th, .teams-table td {
+        font-size: 0.9rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .edit-team-button,
+    .remove-team-button {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
