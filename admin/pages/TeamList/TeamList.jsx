@@ -46,7 +46,7 @@ const TeamList = ({ url }) => {
 
   return (
     <div className="team-list">
-      <h1>Manager List</h1>
+      <h1>Team List</h1>
       {!managers || managers.length === 0 ? (
         <p>No managers found.</p>
       ) : (
