@@ -52,7 +52,7 @@ const TeamRecruitmentForm = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:4000/api/recruitment/add", recruitmentData);
+      const response = await axios.post("https://player-lagbe-backend.onrender.com/api/recruitment/add", recruitmentData);
       if (response.data.success) {
         alert("Team recruitment posted successfully!");
       } else {

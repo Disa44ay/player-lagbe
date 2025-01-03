@@ -14,7 +14,7 @@ import Manager from "./pages/Manager/Manager";
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const url = "http://localhost:4000";
+  const url = "https://player-lagbe-backend.onrender.com";
 
   return (
     <>

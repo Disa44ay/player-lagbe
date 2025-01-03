@@ -8,7 +8,7 @@ export const RecruitmentContextProvider = ({ children }) => {
   const [availableGames, setAvailableGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const url = "http://localhost:4000";
+  const url = "https://player-lagbe-backend.onrender.com";
 
   // Fetch recruitment and available games data
   const fetchRecruitmentData = async () => {

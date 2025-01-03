@@ -39,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const checkIfManager = async (userId) => {
     try {
-      const response = await axios.get("http://localhost:4000/api/manager/list");
+      const response = await axios.get("https://player-lagbe-backend.onrender.com/api/manager/list");
       const managers = response.data.data;
       console.log("Manager list fetched:", managers);
 

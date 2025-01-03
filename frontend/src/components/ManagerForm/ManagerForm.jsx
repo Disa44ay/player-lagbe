@@ -24,7 +24,7 @@ const ManagerForm = () => {
   useEffect(() => {
     const fetchManagers = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/manager/list");
+        const response = await axios.get("https://player-lagbe-backend.onrender.com/api/manager/list");
 
         if (response.data && Array.isArray(response.data.data)) {
           setManagers(response.data.data);
@@ -91,8 +91,8 @@ const ManagerForm = () => {
 
     try {
       const apiUrl = isEditing
-        ? `http://localhost:4000/api/manager/edit/${currentManager._id}`
-        : "http://localhost:4000/api/manager/add";
+        ? `https://player-lagbe-backend.onrender.com/api/manager/edit/${currentManager._id}`
+        : "https://player-lagbe-backend.onrender.com/api/manager/add";
 
       const response = await axios({
         method: isEditing ? "patch" : "post",
@@ -145,7 +145,7 @@ const ManagerForm = () => {
         <h2>Manager Information</h2>
         <div className="logo-container">
           <img
-            src={`http://localhost:4000/images/${currentManager.teamLogo}`}
+            src={`https://player-lagbe-backend.onrender.com/images/${currentManager.teamLogo}`}
             alt={`${currentManager.teamName} Logo`}
             className="team-logo"
           />

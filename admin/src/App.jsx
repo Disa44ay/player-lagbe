@@ -13,7 +13,7 @@ import TeamList from '../pages/TeamList/TeamList'
 
 const App = () => {
 
-  const url = "http://localhost:4000";
+  const url = "https://player-lagbe-backend.onrender.com";
 
   return (
     <div>
